@@ -39,6 +39,7 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		this.currentPage = currentPage;
 	}
 	//1 到添加页面
+	//good
 	public String toAddPage() {
 		List<Dict> list=customerService.findCustLevel();
 		ServletActionContext.getRequest().setAttribute("list", list);
