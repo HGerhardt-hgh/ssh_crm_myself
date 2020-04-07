@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+    <!-- 设置上传文件大小 -->
+	<constant name="struts.multipart.maxSize" value="209715200"></constant>
+	
+	<package name="demo1" extends="struts-default" namespace="/">
+	
+	<!-- 声明拦截器 -->
+	<interceptors>
+	<interceptor name="loginIntercept" class="cn.itcast.Interceptor.LoginInterceptor"></interceptor>
+	</interceptors>
+	
+	    <!-- 用户模块 -->
+		<action name="user_*" class="userAction" method="{1}">
+		
+			<!-- 使用自定义拦截器 -->
+			<interceptor-ref name="loginIntercept">
+			<!-- 配置action里面某些方法不进行拦截
+					name属性值： excludeMethods
+					值：action不拦截的方法名称
+				 -->
+				<param name="excludeMethods">login</param>
+			</interceptor-ref>
+			
+			<!-- 把默认拦截器手动使用一次 -->
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			
+			<result name="loginsuccess">/index.jsp</result>
+			<result name="login">/login.jsp</result>
+			<result name="showUpdatePassword">/jsp/user/updatePassword.jsp</result>
+			<result name="updatePassword">/index.jsp</result>
+			<!-- 到用户管理界面 -->
+			<result name="showMaG">/jsp/user/userManagement.jsp</result>
+		</action>
+		
+		<!-- 顾客模块 -->
+		<action name="customer_*" class="customerAction" method="{1}">
+			<!-- 使用自定义拦截器 -->
+			<interceptor-ref name="loginIntercept"></interceptor-ref>
+			<result name="login">/login.jsp</result>
+				<!-- 把默认拦截器手动使用一次 -->
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			
+			
+		    <result name="toAddPage">/jsp/customer/add.jsp</result>
+		    <result name="list">/jsp/customer/list.jsp</result>
+		    <result name="add" type="redirectAction">customer_list?currentPage=1</result>
+		    <result name="delete" type="redirectAction">customer_list?currentPage=1</result>
+		    <result name="showCustomer">/jsp/customer/edit.jsp</result>
+		    <result name="update" type="redirectAction">customer_list?currentPage=1</result>
+		    <result name="showFind">/jsp/select/selectCustomer.jsp</result>
+		    <result name="normalList">/jsp/customer/normalList.jsp</result>
+		    <!--统计-->
+		    <result name="countByName">/jsp/count/countByCustName.jsp</result>
+		    <result name="countByLevel">/jsp/count/countByCustLevel.jsp</result>
+		    <!-- 客户级别 -->
+		    <result name="custLevel">/jsp/customer/custLevel.jsp</result>
+		    <result name="addCustLevel" type="redirectAction">customer_custLevel.action</result>
+		    <result name="deleteCustLevel" type="redirectAction">customer_custLevel.action</result>
+		    <result name="updateCustLevel" type="redirectAction">customer_custLevel.action</result>
+		    <result name="showCustLevel">/jsp/customer/custLevelEdit.jsp</result>
+		   
+		    </action>
+		    
+		<!-- 联系人模块 -->   
+		<action name="linkMan_*" class="linkManAction" method="{1}">
+			<!-- 使用自定义拦截器 -->
+			<interceptor-ref name="loginIntercept"></interceptor-ref>
+			<result name="login">/login.jsp</result>
+				<!-- 把默认拦截器手动使用一次 -->
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		<result name="toAddPage">/jsp/linkman/add.jsp</result>
+		<result name="add" type="redirectAction">linkMan_list</result>
+		<result name="list">/jsp/linkman/list.jsp</result>
+		<result name="showUpdate" >/jsp/linkman/edit.jsp</result>
+		<result name="update" type="redirectAction">linkMan_list</result>
+		<result name="delete" type="redirectAction">linkMan_list</result>
+		<result name="showFind" >/jsp/select/selectLinkMan.jsp</result>
+		<!-- 文件上传超过大小后配置结果 -->
+		<result name="input">/jsp/error.jsp</result>
+        </action>		
+		
+		<!-- 拜访模块 -->
+		<action name="visit_*" class="visitAction" method="{1}">
+			<!-- 使用自定义拦截器 -->
+			<interceptor-ref name="loginIntercept"></interceptor-ref>
+			<result name="login">/login.jsp</result>
+				<!-- 把默认拦截器手动使用一次 -->
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		<result name="toAddPage">/jsp/visit/add.jsp</result>
+		<result name="add" type="redirectAction">visit_list</result>
+		<result name="list">/jsp/visit/list.jsp</result>
+		<result name="delete" type="redirectAction">visit_list</result>
+		<result name="update" type="redirectAction">visit_list</result>
+		<result name="showUpdate">/jsp/visit/edit.jsp</result>
+		<result name="showFind">/jsp/select/selectVisit.jsp</result>
+		</action>   
+	</package>
+
+</struts>
+
+
+

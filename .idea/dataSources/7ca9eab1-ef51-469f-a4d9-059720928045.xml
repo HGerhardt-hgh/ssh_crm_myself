@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="ssh_crm_myself@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.7">
+    <root id="1">
+      <DefaultCasing>lower/lower</DefaultCasing>
+    </root>
+    <schema id="2" parent="1" name="bindinglistener"/>
+    <schema id="3" parent="1" name="bookstore"/>
+    <schema id="4" parent="1" name="chapter01"/>
+    <schema id="5" parent="1" name="db"/>
+    <schema id="6" parent="1" name="designmodel"/>
+    <schema id="7" parent="1" name="hibernate_day01"/>
+    <schema id="8" parent="1" name="hibernate_day02"/>
+    <schema id="9" parent="1" name="hibernate_day03"/>
+    <schema id="10" parent="1" name="information_schema"/>
+    <schema id="11" parent="1" name="javaweb_lab10"/>
+    <schema id="12" parent="1" name="kedesign"/>
+    <schema id="13" parent="1" name="lab7"/>
+    <schema id="14" parent="1" name="maven"/>
+    <schema id="15" parent="1" name="maven2"/>
+    <schema id="16" parent="1" name="mysql"/>
+    <schema id="17" parent="1" name="project"/>
+    <schema id="18" parent="1" name="spring_day03"/>
+    <schema id="19" parent="1" name="spring_day04"/>
+    <schema id="20" parent="1" name="ssh_crm"/>
+    <schema id="21" parent="1" name="ssh_crm_myself">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="22" parent="1" name="store"/>
+    <schema id="23" parent="1" name="struts2_day01_web"/>
+    <schema id="24" parent="1" name="student"/>
+    <schema id="25" parent="1" name="studyweb"/>
+    <schema id="26" parent="1" name="test"/>
+    <schema id="27" parent="1" name="webtest"/>
+    <table id="28" parent="21" name="t_customer"/>
+    <table id="29" parent="21" name="t_dict"/>
+    <table id="30" parent="21" name="t_linkman"/>
+    <table id="31" parent="21" name="t_user"/>
+    <table id="32" parent="21" name="t_visit"/>
+    <column id="33" parent="28" name="custid">
+      <Position>1</Position>
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="34" parent="28" name="custName">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="35" parent="28" name="custSource">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="36" parent="28" name="custLinkman">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="37" parent="28" name="custPhone">
+      <Position>5</Position>
+      <DataType>INT(10)|4</DataType>
+    </column>
+    <column id="38" parent="28" name="custMobile">
+      <Position>6</Position>
+      <DataType>INT(10)|4</DataType>
+    </column>
+    <column id="39" parent="28" name="custAddress">
+      <Position>7</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="40" parent="28" name="custZip">
+      <Position>8</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="41" parent="28" name="custFax">
+      <Position>9</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="42" parent="28" name="custWebsite">
+      <Position>10</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="43" parent="28" name="custLevel">
+      <Position>11</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <key id="44" parent="28" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>custid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="45" parent="28" name="FKo6oqtbbjmu6890to85xbpymcd">
+      <ColNames>custLevel</ColNames>
+      <RefSchemaName>ssh_crm_myself</RefSchemaName>
+      <RefTableName>t_dict</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>did</RefColNames>
+    </foreign-key>
+    <column id="46" parent="29" name="did">
+      <Position>1</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="47" parent="29" name="dname">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <key id="48" parent="29" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>did</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="49" parent="30" name="lkmId">
+      <Position>1</Position>
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="50" parent="30" name="lkmName">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="51" parent="30" name="lkmGender">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="52" parent="30" name="lkmPhone">
+      <Position>4</Position>
+      <DataType>INT(10)|4</DataType>
+    </column>
+    <column id="53" parent="30" name="lkmMobile">
+      <Position>5</Position>
+      <DataType>INT(10)|4</DataType>
+    </column>
+    <column id="54" parent="30" name="custid">
+      <Position>6</Position>
+      <DataType>INT(10)|4</DataType>
+    </column>
+    <key id="55" parent="30" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>lkmId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="56" parent="30" name="FKpviaf2n560mr992y8njkaaxh8">
+      <ColNames>custid</ColNames>
+      <RefSchemaName>ssh_crm_myself</RefSchemaName>
+      <RefTableName>t_customer</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>custid</RefColNames>
+    </foreign-key>
+    <column id="57" parent="31" name="uid">
+      <Position>1</Position>
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="58" parent="31" name="username">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="59" parent="31" name="password">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="60" parent="31" name="address">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <key id="61" parent="31" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>uid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="62" parent="32" name="visitId">
+      <Position>1</Position>
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="63" parent="32" name="visitAddress">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="64" parent="32" name="visitContent">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="65" parent="32" name="custid">
+      <Position>4</Position>
+      <DataType>INT(10)|4</DataType>
+    </column>
+    <column id="66" parent="32" name="uid">
+      <Position>5</Position>
+      <DataType>INT(10)|4</DataType>
+    </column>
+    <key id="67" parent="32" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>visitId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="68" parent="32" name="FKdrgjn59bak2isi4xqngsk0f4c">
+      <ColNames>custid</ColNames>
+      <RefSchemaName>ssh_crm_myself</RefSchemaName>
+      <RefTableName>t_customer</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>custid</RefColNames>
+    </foreign-key>
+    <foreign-key id="69" parent="32" name="FKmpuabksndief7wumddthsiho1">
+      <ColNames>uid</ColNames>
+      <RefSchemaName>ssh_crm_myself</RefSchemaName>
+      <RefTableName>t_user</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>uid</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
